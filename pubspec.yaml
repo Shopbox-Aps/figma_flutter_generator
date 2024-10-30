@@ -76,3 +76,7 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/to/font-from-package
+
+export:
+  - lib/svg_fetch_to_icon_font.dart
+  - lib/figma_variables_fetcher.dart
