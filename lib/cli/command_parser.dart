@@ -73,21 +73,19 @@ class CommandParser {
   }
 
   static void printUsage() {
-    createParser();
     print('Usage:');
-    print('  svg_fetch_to_icon_font <command> [options]');
+    print('  figma_flutter_generator <command> [options]');
     print('\nCommands:');
     print('  icons      Generate icon font from Figma components');
     print('  variables  Generate theme files from Figma variables');
     print('\nExample:');
-    print('  svg_fetch_to_icon_font icons \\');
-    print('    --token "YOUR_FIGMA_TOKEN" \\');
-    print('    --file "YOUR_FILE_ID" \\');
-    print('    --node "YOUR_NODE_ID" \\');
-    print('    --output "./output" \\');
-    print('    --verbose');
-    print('\nFor command-specific options, use:');
-    print('  svg_fetch_to_icon_font icons --help');
-    print('  svg_fetch_to_icon_font variables --help');
+    print('  figma_flutter_generator icons \\');
+    print('    --token YOUR_FIGMA_TOKEN \\');
+    print('    --file YOUR_FILE_ID \\');
+    print('    --node YOUR_NODE_ID \\');
+    print('    --output ./output');
+    print('\nFor more information:');
+    print('  figma_flutter_generator icons --help');
+    print('  figma_flutter_generator variables --help');
   }
 } 

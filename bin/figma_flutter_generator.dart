@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
-import 'package:svg_fetch_to_icon_font/cli/command_parser.dart';
-import 'package:svg_fetch_to_icon_font/services/figma_api_service.dart';
-import 'package:svg_fetch_to_icon_font/services/file_service.dart';
-import 'package:svg_fetch_to_icon_font/services/theme_generator_service.dart';
+import 'package:figma_flutter_generator/cli/command_parser.dart';
+import 'package:figma_flutter_generator/services/figma_api_service.dart';
+import 'package:figma_flutter_generator/services/file_service.dart';
+import 'package:figma_flutter_generator/services/theme_generator_service.dart';
 
 bool _verbose = false;
 

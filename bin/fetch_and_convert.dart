@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:svg_fetch_to_icon_font/svg_fetch_to_icon_font.dart';
-import 'package:svg_fetch_to_icon_font/figma_variables_fetcher.dart';
+import 'package:figma_flutter_generator/figma_flutter_generator.dart';
+import 'package:figma_flutter_generator/figma_variables_fetcher.dart';
 
 Future<void> activateIconFontGenerator() async {
   print('Activating icon_font_generator...');

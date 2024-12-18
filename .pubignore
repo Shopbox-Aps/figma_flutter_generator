@@ -1,0 +1,42 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code related
+.vscode/
+
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+# Test related
+coverage/
+.test_coverage.dart
+coverage_badge.svg
+
+# Git related
+.git/
+.gitignore
+
+# Old package files
+bin/svg_fetch_to_icon_font.dart
+lib/svg_fetch_to_icon_font.dart
+
+# Keep screenshots
+!assets/screenshots/*.png

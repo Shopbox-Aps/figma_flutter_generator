@@ -2,8 +2,8 @@ import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
-import 'package:svg_fetch_to_icon_font/services/figma_api_service.dart';
-import 'package:svg_fetch_to_icon_font/constants/figma_constants.dart';
+import 'package:figma_flutter_generator/services/figma_api_service.dart';
+import 'package:figma_flutter_generator/constants/figma_constants.dart';
 
 import 'figma_api_service_test.mocks.dart';
 
