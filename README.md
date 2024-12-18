@@ -67,7 +67,6 @@ The tool supports two methods of downloading icons from Figma:
    - Simpler workflow
    - Use with `--direct-svg` flag
    - May have issues with complex icons or special effects
-   - Requires Figma Professional plan
    - Best for simple, basic icons
 
 > **Note:** We recommend using the default PDF download method as it provides superior quality and better handles complex SVG features, ensuring your icons look consistent across all platforms.
