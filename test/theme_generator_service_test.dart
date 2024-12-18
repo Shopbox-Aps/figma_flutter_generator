@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:test/test.dart';
 import 'package:path/path.dart' as path;
-import 'package:svg_fetch_to_icon_font/services/theme_generator_service.dart';
-import 'package:svg_fetch_to_icon_font/models/figma_variable.dart';
-import 'package:svg_fetch_to_icon_font/models/figma_variable_collection.dart';
+import 'package:figma_flutter_generator/services/theme_generator_service.dart';
+import 'package:figma_flutter_generator/models/figma_variable.dart';
+import 'package:figma_flutter_generator/models/figma_variable_collection.dart';
 
 void main() {
   late ThemeGeneratorService generator;
