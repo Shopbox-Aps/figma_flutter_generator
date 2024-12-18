@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/screenshots/cover.png" alt="Figma Flutter Generator Cover" width="100%"/>
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/main/assets/screenshots/cover.png" alt="Figma Flutter Generator Cover" width="100%"/>
 </div>
 
 # Figma Flutter Generator
@@ -20,7 +20,7 @@ A powerful command-line tool that fetches SVG icons from Figma and converts them
 Generate icon fonts from your Figma icons:
 
 <div align="center">
-  <img src="assets/screenshots/flutter_icons_example.png" alt="Flutter Icons Example" width="600"/>
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/main/assets/screenshots/flutter_icons_example.png" alt="Flutter Icons Example" width="600"/>
 </div>
 
 *Example of generated icon font being used in a Flutter app*
@@ -29,13 +29,13 @@ Generate icon fonts from your Figma icons:
 Generate theme files from your Figma variables:
 
 <div align="center">
-  <img src="assets/screenshots/flutter_variable_example_1.png" alt="Figma Variables Setup" width="600"/>
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/main/assets/screenshots/flutter_variable_example_1.png" alt="Figma Variables Setup" width="600"/>
   <p><em>Setting up variables in Figma</em></p>
   
-  <img src="assets/screenshots/flutter_variable_example_2.png" alt="Generated Theme Files" width="600"/>
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/main/assets/screenshots/flutter_variable_example_2.png" alt="Generated Theme Files" width="600"/>
   <p><em>Generated theme files structure</em></p>
   
-  <img src="assets/screenshots/flutter_variable_example_3.png" alt="Theme Usage Example" width="600"/>
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/main/assets/screenshots/flutter_variable_example_3.png" alt="Theme Usage Example" width="600"/>
   <p><em>Using generated theme in Flutter app</em></p>
 </div>
 
