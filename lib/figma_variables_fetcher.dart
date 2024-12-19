@@ -5,13 +5,13 @@ import 'package:path/path.dart' as path;
 import 'constants/figma_constants.dart';
 
 /// A service for fetching and processing Figma variables.
-/// 
+///
 /// This service provides high-level functionality to:
 /// - Fetch variables from Figma
 /// - Process and categorize variables
 /// - Generate theme files from variables
 /// - Handle variable collections and modes
-/// 
+///
 /// Requires a valid Figma access token and file ID.
 class FigmaVariablesFetcher {
   /// The Figma access token used for authentication.
@@ -24,17 +24,17 @@ class FigmaVariablesFetcher {
   late Map<String, dynamic> _meta;
 
   /// Creates a new [FigmaVariablesFetcher] instance.
-  /// 
+  ///
   /// Parameters:
   /// - [_figmaToken]: A valid Figma access token
   /// - [_fileId]: The ID of the Figma file to access
   FigmaVariablesFetcher(this._figmaToken, this._fileId);
 
   /// Fetches all variables from the Figma file.
-  /// 
+  ///
   /// Makes an API request to fetch variables and their metadata.
   /// Returns the raw variable data from the API.
-  /// 
+  ///
   /// Throws an exception if:
   /// - The API request fails
   /// - The response is invalid
@@ -63,15 +63,15 @@ class FigmaVariablesFetcher {
   }
 
   /// Generates theme files from Figma variables.
-  /// 
+  ///
   /// Parameters:
   /// - [outputDirectory]: The directory where theme files will be generated
-  /// 
+  ///
   /// This method:
   /// 1. Fetches variables from Figma
   /// 2. Processes and categorizes variables
   /// 3. Generates theme files for each mode (e.g., light/dark)
-  /// 
+  ///
   /// Throws an exception if:
   /// - Variables cannot be fetched
   /// - The mapped collection is not found
@@ -111,13 +111,13 @@ class FigmaVariablesFetcher {
   }
 
   /// Generates a theme file for a specific mode.
-  /// 
+  ///
   /// Parameters:
   /// - [mode]: The mode configuration (e.g., light/dark)
   /// - [collection]: The variable collection containing the mode
   /// - [variables]: All available variables
   /// - [outputDirectory]: Where to save the generated file
-  /// 
+  ///
   /// Creates a Dart file containing theme constants for the specified mode.
   Future<void> _generateThemeFile(
     Map<String, dynamic> mode,
@@ -162,12 +162,12 @@ class FigmaVariablesFetcher {
   }
 
   /// Groups variables by their category based on their path structure.
-  /// 
+  ///
   /// Parameters:
   /// - [variableIds]: List of variable IDs to group
   /// - [variables]: Map of all available variables
   /// - [modeId]: The current mode ID
-  /// 
+  ///
   /// Returns a map where keys are categories and values are lists of variables.
   Map<String, List<Map<String, dynamic>>> _groupVariablesByCategory(
     List<dynamic> variableIds,
@@ -199,14 +199,14 @@ class FigmaVariablesFetcher {
   }
 
   /// Formats a mode name to be Dart-compliant.
-  /// 
+  ///
   /// Converts spaces to underscores and makes the name lowercase.
   String _formatModeName(String name) {
     return name.toLowerCase().replaceAll(' ', '_');
   }
 
   /// Formats a property name to be Dart-compliant.
-  /// 
+  ///
   /// Handles special characters, reserved words, and naming conventions.
   String _formatPropertyName(String name) {
     final parts = name.split('/');
@@ -238,12 +238,12 @@ class FigmaVariablesFetcher {
   }
 
   /// Resolves a variable's value for a specific mode.
-  /// 
+  ///
   /// Parameters:
   /// - [variable]: The variable to resolve
   /// - [modeId]: The mode to get the value for
   /// - [variables]: All available variables for reference
-  /// 
+  ///
   /// Returns the resolved value in a format suitable for Dart code generation.
   dynamic _resolveValue(
     Map<String, dynamic> variable,

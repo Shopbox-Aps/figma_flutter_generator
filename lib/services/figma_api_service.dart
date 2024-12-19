@@ -4,12 +4,12 @@ import '../models/figma_variable.dart';
 import '../models/figma_variable_collection.dart';
 
 /// A service for interacting with the Figma API.
-/// 
+///
 /// This service provides methods to:
 /// - Fetch nodes and components from Figma files
 /// - Export images in different formats
 /// - Fetch and manage variables and variable collections
-/// 
+///
 /// All methods require a valid Figma access token and file ID.
 class FigmaApiService {
   /// The base URL for the Figma API.
@@ -25,7 +25,7 @@ class FigmaApiService {
   final http.Client _client;
 
   /// Creates a new [FigmaApiService] instance.
-  /// 
+  ///
   /// Parameters:
   /// - [_figmaToken]: A valid Figma access token
   /// - [_fileId]: The ID of the Figma file to access
@@ -37,10 +37,10 @@ class FigmaApiService {
   }) : _client = client ?? http.Client();
 
   /// Fetches a specific node from the Figma file.
-  /// 
+  ///
   /// Parameters:
   /// - [nodeId]: The ID of the node to fetch
-  /// 
+  ///
   /// Returns the node's document data.
   /// Throws an exception if the node cannot be fetched.
   Future<Map<String, dynamic>> fetchNode(String nodeId) async {
@@ -52,11 +52,11 @@ class FigmaApiService {
   }
 
   /// Exports images for specified vector nodes.
-  /// 
+  ///
   /// Parameters:
   /// - [vectorIds]: List of vector node IDs to export
   /// - [exportAsSvg]: Whether to export as SVG (true) or PDF (false)
-  /// 
+  ///
   /// Returns a map of node IDs to their export URLs.
   /// Throws an exception if the export fails.
   Future<Map<String, String>> exportImages(List<String> vectorIds,
@@ -71,7 +71,7 @@ class FigmaApiService {
   }
 
   /// Fetches all variables from the Figma file.
-  /// 
+  ///
   /// Returns the raw variable data from the API.
   /// Throws an exception if the variables cannot be fetched.
   Future<Map<String, dynamic>> fetchVariables() async {
@@ -80,7 +80,7 @@ class FigmaApiService {
   }
 
   /// Fetches and parses variables into strongly-typed objects.
-  /// 
+  ///
   /// Returns a map of variable IDs to [FigmaVariable] objects.
   /// Throws an exception if the variables cannot be fetched or parsed.
   Future<Map<String, FigmaVariable>> fetchTypedVariables() async {
@@ -91,7 +91,7 @@ class FigmaApiService {
   }
 
   /// Fetches and parses variable collections into strongly-typed objects.
-  /// 
+  ///
   /// Returns a map of collection IDs to [FigmaVariableCollection] objects.
   /// Throws an exception if the collections cannot be fetched or parsed.
   Future<Map<String, FigmaVariableCollection>>
@@ -104,10 +104,10 @@ class FigmaApiService {
   }
 
   /// Makes an authenticated request to the Figma API.
-  /// 
+  ///
   /// Parameters:
   /// - [url]: The API endpoint URL
-  /// 
+  ///
   /// Returns the parsed JSON response.
   /// Throws an exception if the request fails or returns an error.
   Future<Map<String, dynamic>> _makeRequest(String url) async {

@@ -1,5 +1,5 @@
 /// Represents a collection of related Figma variables.
-/// 
+///
 /// A variable collection groups related variables together and defines
 /// the modes (e.g., light/dark) in which these variables can have different values.
 /// This is typically used to organize design tokens in a design system.
@@ -11,7 +11,7 @@ class FigmaVariableCollection {
   final String name;
 
   /// The list of modes (e.g., light/dark) supported by this collection.
-  /// 
+  ///
   /// Each mode represents a different state or theme where variables
   /// can have different values.
   final List<FigmaVariableMode> modes;
@@ -20,12 +20,12 @@ class FigmaVariableCollection {
   final List<String> variableIds;
 
   /// The ID of the default mode for this collection.
-  /// 
+  ///
   /// This mode is used when no specific mode is specified.
   final String defaultModeId;
 
   /// Creates a new [FigmaVariableCollection] instance.
-  /// 
+  ///
   /// All parameters are required and correspond to Figma's collection properties.
   FigmaVariableCollection({
     required this.id,
@@ -36,7 +36,7 @@ class FigmaVariableCollection {
   });
 
   /// Creates a [FigmaVariableCollection] from a JSON map.
-  /// 
+  ///
   /// The JSON structure should match Figma's API response format for variable collections.
   /// Throws if required fields are missing or of incorrect type.
   factory FigmaVariableCollection.fromJson(Map<String, dynamic> json) {
@@ -52,7 +52,7 @@ class FigmaVariableCollection {
   }
 
   /// Converts the collection to a JSON map.
-  /// 
+  ///
   /// The resulting map matches Figma's API format and can be used
   /// for serialization or API requests.
   Map<String, dynamic> toJson() => {
@@ -65,7 +65,7 @@ class FigmaVariableCollection {
 }
 
 /// Represents a mode within a variable collection.
-/// 
+///
 /// A mode defines a specific state or theme (e.g., light mode, dark mode)
 /// where variables can have different values. This allows for maintaining
 /// multiple sets of values for the same variables.
@@ -77,7 +77,7 @@ class FigmaVariableMode {
   final String name;
 
   /// Creates a new [FigmaVariableMode] instance.
-  /// 
+  ///
   /// Both [modeId] and [name] are required parameters.
   FigmaVariableMode({
     required this.modeId,
@@ -85,7 +85,7 @@ class FigmaVariableMode {
   });
 
   /// Creates a [FigmaVariableMode] from a JSON map.
-  /// 
+  ///
   /// The JSON structure should match Figma's API response format for modes.
   /// Throws if required fields are missing or of incorrect type.
   factory FigmaVariableMode.fromJson(Map<String, dynamic> json) {
@@ -96,7 +96,7 @@ class FigmaVariableMode {
   }
 
   /// Converts the mode to a JSON map.
-  /// 
+  ///
   /// The resulting map matches Figma's API format and can be used
   /// for serialization or API requests.
   Map<String, dynamic> toJson() => {

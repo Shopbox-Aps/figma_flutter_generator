@@ -1,4 +1,4 @@
-## 0.0.4
+## 0.0.5
 
 * Initial release with core functionality:
   * Fetch SVG icons from Figma using direct SVG or PDF download
