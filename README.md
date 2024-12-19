@@ -14,6 +14,16 @@ A powerful command-line tool that fetches SVG icons from Figma and converts them
 📥 Support for both PDF and SVG icon downloads
 📝 Verbose mode for detailed operation logging
 
+## Documentation
+
+Comprehensive documentation is available at [docs.page](https://docs.page/Shopbox-Aps/figma_flutter_generator). Here's what you'll find:
+
+- [Getting Started](https://docs.page/Shopbox-Aps/figma_flutter_generator/installation) - Installation and basic setup
+- [Icon Generation](https://docs.page/Shopbox-Aps/figma_flutter_generator/icons) - How to generate icon fonts from Figma
+- [Theme Generation](https://docs.page/Shopbox-Aps/figma_flutter_generator/variables) - How to generate theme files from Figma variables
+- [Figma Setup Guide](https://docs.page/Shopbox-Aps/figma_flutter_generator/figma-setup) - How to set up your Figma file
+- [Examples](https://docs.page/Shopbox-Aps/figma_flutter_generator/examples) - Code examples and use cases
+- [Troubleshooting](https://docs.page/Shopbox-Aps/figma_flutter_generator/troubleshooting) - Common issues and solutions
 ## Command Examples
 
 ### Icons Command
@@ -279,9 +289,10 @@ To contribute to this package:
    ```
 
 ## Authors
-- **Ramy Selim** - <span style="color: green">[<img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" height="15" width="15"/> https://www.linkedin.com/in/ramy-selim-417a6160/](https://www.linkedin.com/in/ramy-selim-417a6160/)</span>
 
-- **Mohammed Ebrahim** - <span style="color: green">[<img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" height="15" width="15"/> https://www.linkedin.com/in/mohammed-ebrahim-675418191/](https://www.linkedin.com/in/mohammed-ebrahim-675418191/)</span>
+- [Ramy Selim](https://www.linkedin.com/in/ramy-selim-417a6160/)  [<img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" height="16" width="16"/>](https://www.linkedin.com/in/ramy-selim-417a6160/)
+
+- [Mohammed Ebrahim](https://www.linkedin.com/in/mohammed-ebrahim-675418191/)  [<img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" height="16" width="16"/>](https://www.linkedin.com/in/mohammed-ebrahim-675418191/)
 
 ## License
 
@@ -295,14 +306,4 @@ Developed and maintained by [Shopbox APS](https://shopbox.com).
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Documentation
-
-Comprehensive documentation is available at [docs.page](https://docs.page/shopbox-engineering/figma_flutter_generator). Here's what you'll find:
-
-- [Getting Started](https://docs.page/shopbox-engineering/figma_flutter_generator/installation) - Installation and basic setup
-- [Icon Generation](https://docs.page/shopbox-engineering/figma_flutter_generator/icons) - How to generate icon fonts from Figma
-- [Theme Generation](https://docs.page/shopbox-engineering/figma_flutter_generator/variables) - How to generate theme files from Figma variables
-- [Figma Setup Guide](https://docs.page/shopbox-engineering/figma_flutter_generator/figma-setup) - How to set up your Figma file
-- [Examples](https://docs.page/shopbox-engineering/figma_flutter_generator/examples) - Code examples and use cases
-- [Troubleshooting](https://docs.page/shopbox-engineering/figma_flutter_generator/troubleshooting) - Common issues and solutions
 
