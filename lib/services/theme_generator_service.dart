@@ -5,14 +5,65 @@ import '../models/figma_variable_collection.dart';
 
 class ThemeGeneratorService {
   static const _dartReservedWords = {
-    'abstract', 'as', 'assert', 'async', 'await', 'break', 'case', 'catch',
-    'class', 'const', 'continue', 'default', 'deferred', 'do', 'dynamic', 'else',
-    'enum', 'export', 'extends', 'extension', 'external', 'factory', 'false',
-    'final', 'finally', 'for', 'Function', 'get', 'hide', 'if', 'implements',
-    'import', 'in', 'interface', 'is', 'library', 'mixin', 'new', 'null',
-    'operator', 'part', 'rethrow', 'return', 'set', 'show', 'static', 'super',
-    'switch', 'sync', 'this', 'throw', 'true', 'try', 'typedef', 'var', 'void',
-    'while', 'with', 'yield',
+    'abstract',
+    'as',
+    'assert',
+    'async',
+    'await',
+    'break',
+    'case',
+    'catch',
+    'class',
+    'const',
+    'continue',
+    'default',
+    'deferred',
+    'do',
+    'dynamic',
+    'else',
+    'enum',
+    'export',
+    'extends',
+    'extension',
+    'external',
+    'factory',
+    'false',
+    'final',
+    'finally',
+    'for',
+    'Function',
+    'get',
+    'hide',
+    'if',
+    'implements',
+    'import',
+    'in',
+    'interface',
+    'is',
+    'library',
+    'mixin',
+    'new',
+    'null',
+    'operator',
+    'part',
+    'rethrow',
+    'return',
+    'set',
+    'show',
+    'static',
+    'super',
+    'switch',
+    'sync',
+    'this',
+    'throw',
+    'true',
+    'try',
+    'typedef',
+    'var',
+    'void',
+    'while',
+    'with',
+    'yield',
   };
 
   Future<void> generateThemeFiles(
@@ -50,7 +101,8 @@ class ThemeGeneratorService {
         final propertyName = _formatPropertyName(variable.name);
         final value = _resolveValue(variable, mode.modeId, variables);
         if (value != null) {
-          buffer.writeln('  final ${_getPropertyType(variable)} $propertyName = $value;');
+          buffer.writeln(
+              '  final ${_getPropertyType(variable)} $propertyName = $value;');
         }
       }
     }
@@ -166,4 +218,4 @@ extension StringExtension on String {
   String capitalize() {
     return "${this[0].toUpperCase()}${substring(1)}";
   }
-} 
+}

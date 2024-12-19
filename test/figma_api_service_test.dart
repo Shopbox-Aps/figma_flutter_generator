@@ -14,22 +14,23 @@ void main() {
 
   setUp(() {
     mockClient = MockClient.new();
-    figmaApi = FigmaApiService('test_token', 'test_file_id', client: mockClient);
+    figmaApi =
+        FigmaApiService('test_token', 'test_file_id', client: mockClient);
   });
 
   group('FigmaApiService', () {
     test('fetchNode returns correct data', () async {
       final nodeId = '123:456';
-      final expectedUrl = 
+      final expectedUrl =
           '${FigmaConstants.baseUrl}/files/test_file_id/nodes?ids=123:456';
-      
+
       when(mockClient.get(
         Uri.parse(expectedUrl),
         headers: {'X-Figma-Token': 'test_token'},
       )).thenAnswer((_) async => http.Response(
-        '{"nodes": {"123:456": {"document": {"test": "data"}}}}',
-        200,
-      ));
+            '{"nodes": {"123:456": {"document": {"test": "data"}}}}',
+            200,
+          ));
 
       final result = await figmaApi.fetchNode(nodeId);
       expect(result, {'test': 'data'});
@@ -37,48 +38,48 @@ void main() {
 
     test('exportImages returns correct URLs', () async {
       final vectorIds = ['id1', 'id2'];
-      final expectedUrl = 
+      final expectedUrl =
           '${FigmaConstants.baseUrl}/images/test_file_id?ids=id1,id2&format=svg&scale=1';
-      
+
       when(mockClient.get(
         Uri.parse(expectedUrl),
         headers: {'X-Figma-Token': 'test_token'},
       )).thenAnswer((_) async => http.Response(
-        '{"images": {"id1": "url1", "id2": "url2"}}',
-        200,
-      ));
+            '{"images": {"id1": "url1", "id2": "url2"}}',
+            200,
+          ));
 
       final result = await figmaApi.exportImages(vectorIds, exportAsSvg: true);
       expect(result, {'id1': 'url1', 'id2': 'url2'});
     });
 
     test('fetchVariables returns correct data', () async {
-      final expectedUrl = 
+      final expectedUrl =
           '${FigmaConstants.baseUrl}/files/test_file_id${FigmaConstants.variablesEndpoint}';
-      
+
       when(mockClient.get(
         Uri.parse(expectedUrl),
         headers: {'X-Figma-Token': 'test_token'},
       )).thenAnswer((_) async => http.Response(
-        '{"meta": {"variables": {"var1": {"test": "data"}}}}',
-        200,
-      ));
+            '{"meta": {"variables": {"var1": {"test": "data"}}}}',
+            200,
+          ));
 
       final result = await figmaApi.fetchVariables();
       expect(result['meta']['variables']['var1'], {'test': 'data'});
     });
 
     test('handles API errors correctly', () async {
-      final expectedUrl = 
+      final expectedUrl =
           '${FigmaConstants.baseUrl}/files/test_file_id${FigmaConstants.variablesEndpoint}';
-      
+
       when(mockClient.get(
         Uri.parse(expectedUrl),
         headers: {'X-Figma-Token': 'test_token'},
       )).thenAnswer((_) async => http.Response(
-        '{"error": "Invalid token"}',
-        401,
-      ));
+            '{"error": "Invalid token"}',
+            401,
+          ));
 
       expect(
         () => figmaApi.fetchVariables(),
@@ -86,4 +87,4 @@ void main() {
       );
     });
   });
-} 
+}

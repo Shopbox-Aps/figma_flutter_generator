@@ -1,6 +1,23 @@
 import 'package:args/args.dart';
 
+/// A utility class for parsing command-line arguments for the Figma Flutter Generator.
+///
+/// This class provides functionality to create and configure the argument parser
+/// for both icon generation and theme generation commands. It handles all command-line
+/// options and their validation.
 class CommandParser {
+  /// Creates and configures an [ArgParser] with all supported commands and options.
+  ///
+  /// Returns an [ArgParser] configured with:
+  /// - Global options (token, file)
+  /// - Icons command with its specific options
+  /// - Variables command with its specific options
+  ///
+  /// Example usage:
+  /// ```dart
+  /// final parser = CommandParser.createParser();
+  /// final results = parser.parse(arguments);
+  /// ```
   static ArgParser createParser() {
     final parser = ArgParser();
 
@@ -72,6 +89,13 @@ class CommandParser {
     return parser;
   }
 
+  /// Prints usage information for the command-line tool.
+  ///
+  /// This method displays:
+  /// - Basic usage syntax
+  /// - Available commands
+  /// - Example usage
+  /// - Links to more detailed help
   static void printUsage() {
     print('Usage:');
     print('  figma_flutter_generator <command> [options]');

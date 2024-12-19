@@ -1,6 +1,6 @@
 name: figma_flutter_generator
 description: A command-line tool to fetch SVG icons from Figma and convert them into an icon font, along with Figma variables to Flutter theme files.
-version: 0.0.2
+version: 0.0.6
 repository: https://github.com/Shopbox-Aps/figma_flutter_generator.git
 
 environment:
