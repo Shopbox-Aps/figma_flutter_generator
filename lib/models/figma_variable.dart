@@ -30,4 +30,4 @@ class FigmaVariable {
         'valuesByMode': valuesByMode,
         'variableCollectionId': variableCollectionId,
       };
-} 
+}

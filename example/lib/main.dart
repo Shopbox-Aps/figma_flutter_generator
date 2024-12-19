@@ -44,4 +44,4 @@ Future<void> generateTheme() async {
   } catch (e) {
     print('Error generating theme files: $e');
   }
-} 
+}

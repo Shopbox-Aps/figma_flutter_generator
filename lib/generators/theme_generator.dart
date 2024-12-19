@@ -4,7 +4,7 @@ import '../api/figma_client.dart';
 import '../utils/logger.dart';
 
 /// A generator for creating Flutter theme files from Figma variables.
-/// 
+///
 /// This class handles the process of:
 /// - Fetching variables from Figma
 /// - Converting variables to Flutter-compatible formats
@@ -13,15 +13,15 @@ import '../utils/logger.dart';
 class ThemeGenerator {
   /// The Figma API client used to fetch data.
   final FigmaClient _client;
-  
+
   /// The output directory for generated files.
   final String _outputDir;
-  
+
   /// Whether to enable verbose logging.
   final bool _verbose;
 
   /// Creates a new [ThemeGenerator] instance.
-  /// 
+  ///
   /// Parameters:
   /// - [client]: The Figma API client
   /// - [outputDir]: Directory for generated files
@@ -33,13 +33,13 @@ class ThemeGenerator {
   );
 
   /// Generates theme files from Figma variables.
-  /// 
+  ///
   /// This method:
   /// 1. Creates the output directory
   /// 2. Fetches variables from Figma
   /// 3. Processes and categorizes variables
   /// 4. Generates Flutter theme files
-  /// 
+  ///
   /// Returns `true` if generation was successful, `false` otherwise.
   Future<bool> generate() async {
     try {
@@ -51,7 +51,8 @@ class ThemeGenerator {
 
       // Fetch variables
       final data = await _client.getVariables();
-      final collections = data['meta']['variableCollections'] as Map<String, dynamic>;
+      final collections =
+          data['meta']['variableCollections'] as Map<String, dynamic>;
       final variables = data['variables'] as Map<String, dynamic>;
 
       if (_verbose) {
@@ -95,7 +96,7 @@ class ThemeGenerator {
   }
 
   /// Generates a Dart file containing color constants.
-  /// 
+  ///
   /// Parameters:
   /// - [colors]: Map of color variables from Figma
   void _generateColorFile(Map<String, dynamic> colors) {
@@ -121,7 +122,7 @@ class ThemeGenerator {
   }
 
   /// Generates a Dart file containing typography styles.
-  /// 
+  ///
   /// Parameters:
   /// - [typography]: Map of typography variables from Figma
   void _generateTypographyFile(Map<String, dynamic> typography) {
@@ -142,12 +143,13 @@ class ThemeGenerator {
     file.writeAsStringSync(buffer.toString());
 
     if (_verbose) {
-      Logger.debug('Generated typography.dart with ${typography.length} styles');
+      Logger.debug(
+          'Generated typography.dart with ${typography.length} styles');
     }
   }
 
   /// Generates a Dart file containing spacing constants.
-  /// 
+  ///
   /// Parameters:
   /// - [spacing]: Map of spacing variables from Figma
   void _generateSpacingFile(Map<String, dynamic> spacing) {
@@ -214,4 +216,4 @@ class ThemeGenerator {
     // Implementation depends on Figma's spacing format
     return 8.0;
   }
-} 
+}

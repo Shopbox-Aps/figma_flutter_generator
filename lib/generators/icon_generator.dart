@@ -4,7 +4,7 @@ import '../api/figma_client.dart';
 import '../utils/logger.dart';
 
 /// A generator for creating icon fonts from Figma components.
-/// 
+///
 /// This class handles the process of:
 /// - Fetching icon components from Figma
 /// - Downloading icon assets (SVG/PDF)
@@ -13,21 +13,21 @@ import '../utils/logger.dart';
 class IconGenerator {
   /// The Figma API client used to fetch data.
   final FigmaClient _client;
-  
+
   /// The ID of the node containing icons.
   final String _nodeId;
-  
+
   /// The output directory for generated files.
   final String _outputDir;
-  
+
   /// Whether to export icons directly as SVG.
   final bool _directSvg;
-  
+
   /// Whether to enable verbose logging.
   final bool _verbose;
 
   /// Creates a new [IconGenerator] instance.
-  /// 
+  ///
   /// Parameters:
   /// - [client]: The Figma API client
   /// - [nodeId]: ID of the node containing icons
@@ -43,13 +43,13 @@ class IconGenerator {
   );
 
   /// Generates icon assets and prepares files for font generation.
-  /// 
+  ///
   /// This method:
   /// 1. Creates necessary directories
   /// 2. Fetches icon components from Figma
   /// 3. Downloads icon assets
   /// 4. Organizes files for font generation
-  /// 
+  ///
   /// Returns `true` if generation was successful, `false` otherwise.
   Future<bool> generate() async {
     try {
@@ -86,7 +86,8 @@ class IconGenerator {
       // Get image URLs
       final componentIds = components.map((c) => c['id'] as String).toList();
       final format = _directSvg ? 'svg' : 'pdf';
-      final imageUrls = await _client.getImageUrls(componentIds, format: format);
+      final imageUrls =
+          await _client.getImageUrls(componentIds, format: format);
 
       // Download images
       for (final component in components) {
@@ -118,10 +119,10 @@ class IconGenerator {
   }
 
   /// Recursively finds icon components in the document.
-  /// 
+  ///
   /// Parameters:
   /// - [node]: The current node to search in
-  /// 
+  ///
   /// Returns a list of icon components found.
   List<Map<String, dynamic>> _findComponents(Map<String, dynamic> node) {
     final components = <Map<String, dynamic>>[];
@@ -146,4 +147,4 @@ class IconGenerator {
 
     return components;
   }
-} 
+}

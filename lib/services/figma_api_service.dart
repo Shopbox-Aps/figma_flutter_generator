@@ -42,17 +42,17 @@ class FigmaApiService {
   Future<Map<String, FigmaVariable>> fetchTypedVariables() async {
     final response = await fetchVariables();
     final variables = response['meta']['variables'] as Map<String, dynamic>;
-    return variables.map((key, value) => MapEntry(
-        key,
-        FigmaVariable.fromJson(value as Map<String, dynamic>)));
+    return variables.map((key, value) =>
+        MapEntry(key, FigmaVariable.fromJson(value as Map<String, dynamic>)));
   }
 
-  Future<Map<String, FigmaVariableCollection>> fetchVariableCollections() async {
+  Future<Map<String, FigmaVariableCollection>>
+      fetchVariableCollections() async {
     final response = await fetchVariables();
-    final collections = response['meta']['variableCollections'] as Map<String, dynamic>;
+    final collections =
+        response['meta']['variableCollections'] as Map<String, dynamic>;
     return collections.map((key, value) => MapEntry(
-        key,
-        FigmaVariableCollection.fromJson(value as Map<String, dynamic>)));
+        key, FigmaVariableCollection.fromJson(value as Map<String, dynamic>)));
   }
 
   Future<Map<String, dynamic>> _makeRequest(String url) async {
@@ -73,4 +73,4 @@ class FigmaApiService {
       throw Exception('Failed to make Figma API request: $e');
     }
   }
-} 
+}

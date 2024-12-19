@@ -54,4 +54,4 @@ class FigmaVariableMode {
         'modeId': modeId,
         'name': name,
       };
-} 
+}

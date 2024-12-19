@@ -13,7 +13,8 @@ class FigmaVariablesFetcher {
 
   Future<Map<String, dynamic>> fetchVariables() async {
     try {
-      final variablesUrl = '${FigmaConstants.baseUrl}/files/$_fileId${FigmaConstants.variablesEndpoint}';
+      final variablesUrl =
+          '${FigmaConstants.baseUrl}/files/$_fileId${FigmaConstants.variablesEndpoint}';
       final response = await http.get(
         Uri.parse(variablesUrl),
         headers: {
@@ -24,7 +25,8 @@ class FigmaVariablesFetcher {
       if (response.statusCode == 200) {
         return json.decode(response.body);
       } else {
-        throw Exception('${FigmaConstants.fetchVariablesError}: ${response.body}');
+        throw Exception(
+            '${FigmaConstants.fetchVariablesError}: ${response.body}');
       }
     } catch (e) {
       print('Error in fetchVariables: $e');
@@ -46,15 +48,19 @@ class FigmaVariablesFetcher {
 
       // Find the mapped collection
       final mappedCollection = collections.values.firstWhere(
-        (collection) => collection['name'] == FigmaConstants.mappedCollectionName,
-        orElse: () => throw Exception(FigmaConstants.mappedCollectionNotFoundError),
+        (collection) =>
+            collection['name'] == FigmaConstants.mappedCollectionName,
+        orElse: () =>
+            throw Exception(FigmaConstants.mappedCollectionNotFoundError),
       );
 
-      print('Found mapped collection with ${mappedCollection['variableIds'].length} variables');
+      print(
+          'Found mapped collection with ${mappedCollection['variableIds'].length} variables');
 
       // Process each mode in the mapped collection
       for (var mode in mappedCollection['modes']) {
-        await _generateThemeFile(mode, mappedCollection, variables, outputDirectory);
+        await _generateThemeFile(
+            mode, mappedCollection, variables, outputDirectory);
       }
     } catch (e) {
       print('Error generating theme files: $e');
@@ -91,7 +97,8 @@ class FigmaVariablesFetcher {
         final propertyName = _formatPropertyName(variable['name'] as String);
         final value = _resolveValue(variable, modeId, variables);
         if (value != null) {
-          buffer.writeln('  final ${_getPropertyType(variable)} $propertyName = $value;');
+          buffer.writeln(
+              '  final ${_getPropertyType(variable)} $propertyName = $value;');
         }
       }
     }
@@ -125,8 +132,8 @@ class FigmaVariablesFetcher {
 
     // Sort variables within each category
     for (var category in grouped.keys) {
-      grouped[category]!.sort((a, b) => 
-          (a['name'] as String).compareTo(b['name'] as String));
+      grouped[category]!
+          .sort((a, b) => (a['name'] as String).compareTo(b['name'] as String));
     }
 
     return grouped;

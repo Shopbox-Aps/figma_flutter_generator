@@ -76,14 +76,18 @@ void main() {
       // Check light theme content
       final lightContent = await lightThemeFile.readAsString();
       expect(lightContent.contains('class LightTheme'), true);
-      expect(lightContent.contains('Color primary = Color.fromRGBO(255, 0, 0, 1)'), true);
+      expect(
+          lightContent.contains('Color primary = Color.fromRGBO(255, 0, 0, 1)'),
+          true);
       expect(lightContent.contains('double body_size = 16.0'), true);
       expect(lightContent.contains("String font_family = 'Roboto'"), true);
 
       // Check dark theme content
       final darkContent = await darkThemeFile.readAsString();
       expect(darkContent.contains('class DarkTheme'), true);
-      expect(darkContent.contains('Color primary = Color.fromRGBO(0, 0, 255, 1)'), true);
+      expect(
+          darkContent.contains('Color primary = Color.fromRGBO(0, 0, 255, 1)'),
+          true);
       expect(darkContent.contains('double body_size = 18.0'), true);
       expect(darkContent.contains("String font_family = 'Roboto'"), true);
     });
@@ -109,10 +113,10 @@ void main() {
 
       await generator.generateThemeFiles(collection, variables, tempDir.path);
       final themeFile = File(path.join(tempDir.path, 'light_theme.dart'));
-      
+
       expect(await themeFile.exists(), true);
       final content = await themeFile.readAsString();
       expect(content.contains('dynamic variable = '), false);
     });
   });
-} 
+}
