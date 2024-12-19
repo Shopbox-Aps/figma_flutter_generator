@@ -294,3 +294,15 @@ Developed and maintained by [Shopbox APS](https://shopbox.com).
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Documentation
+
+Comprehensive documentation is available at [docs.page](https://docs.page/shopbox-engineering/figma_flutter_generator). Here's what you'll find:
+
+- [Getting Started](https://docs.page/shopbox-engineering/figma_flutter_generator/installation) - Installation and basic setup
+- [Icon Generation](https://docs.page/shopbox-engineering/figma_flutter_generator/icons) - How to generate icon fonts from Figma
+- [Theme Generation](https://docs.page/shopbox-engineering/figma_flutter_generator/variables) - How to generate theme files from Figma variables
+- [Figma Setup Guide](https://docs.page/shopbox-engineering/figma_flutter_generator/figma-setup) - How to set up your Figma file
+- [Examples](https://docs.page/shopbox-engineering/figma_flutter_generator/examples) - Code examples and use cases
+- [Troubleshooting](https://docs.page/shopbox-engineering/figma_flutter_generator/troubleshooting) - Common issues and solutions
+
