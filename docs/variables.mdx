@@ -1,0 +1,185 @@
+---
+title: Theme Generation
+description: Generate Flutter theme files from Figma variables
+---
+
+# Theme Generation
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/refactor/assets/screenshots/flutter_variable_example_1.png" alt="Figma Variables Setup" width="600"/>
+  <p><em>Setting up variables in Figma</em></p>
+</div>
+
+## Overview
+
+The theme generation feature converts Figma variables into type-safe Flutter theme files, supporting:
+- Multiple theme modes (light/dark)
+- Colors, typography, and spacing variables
+- Automatic type conversion
+- Organized theme structure
+
+## Prerequisites
+
+- Figma Enterprise plan (required for Variables API access)
+- Variables properly set up in Figma
+- Collection named "1. ✨Mapped" containing your theme variables
+
+## Command Structure
+
+```bash
+figma_flutter_generator variables \
+  --token YOUR_FIGMA_TOKEN \
+  --file YOUR_FILE_ID \
+  --output ./lib/theme \
+  [--clean] \
+  [--verbose]
+```
+
+### Required Parameters
+
+- `--token, -t`: Your Figma access token
+- `--file, -f`: The Figma file ID
+- `--output, -o`: Output directory for theme files
+
+### Optional Flags
+
+- `--clean`: Clean output directory before processing
+- `--verbose, -v`: Enable detailed logging
+
+## Figma Variables Setup
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/refactor/assets/screenshots/flutter_variable_example_2.png" alt="Generated Theme Files" width="600"/>
+  <p><em>Generated theme files structure</em></p>
+</div>
+
+### Variable Types
+
+The tool supports these Figma variable types:
+
+1. **Colors**
+   ```
+   colors/primary
+   colors/secondary
+   colors/background
+   ```
+
+2. **Typography**
+   ```
+   typography/body_size
+   typography/heading_size
+   typography/font_family
+   ```
+
+3. **Spacing**
+   ```
+   spacing/small
+   spacing/medium
+   spacing/large
+   ```
+
+### Naming Convention
+
+- Use forward slashes (/) to create categories
+- Use underscores (_) for multi-word names
+- Keep names lowercase
+- Example: `colors/button_primary`
+
+## Output Structure
+
+```
+lib/
+└── theme/
+    ├── light_theme.dart    # Light theme variables
+    ├── dark_theme.dart     # Dark theme variables
+    └── theme.dart          # Combined theme configuration
+```
+
+## Using Generated Theme
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/refactor/assets/screenshots/flutter_variable_example_3.png" alt="Theme Usage Example" width="600"/>
+  <p><em>Using generated theme in Flutter app</em></p>
+</div>
+
+### Basic Usage
+
+```dart
+import 'package:your_project/theme/light_theme.dart';
+import 'package:your_project/theme/dark_theme.dart';
+
+// Using theme variables
+Container(
+  color: lightTheme.background_color,
+  padding: EdgeInsets.all(lightTheme.spacing_medium),
+  child: Text(
+    'Hello World',
+    style: TextStyle(
+      color: lightTheme.text_primary,
+      fontSize: lightTheme.font_size_body,
+    ),
+  ),
+)
+```
+
+### Creating ThemeData
+
+```dart
+ThemeData getLightTheme() {
+  return ThemeData(
+    primaryColor: lightTheme.primary_color,
+    backgroundColor: lightTheme.background_color,
+    textTheme: TextTheme(
+      bodyLarge: TextStyle(
+        color: lightTheme.text_primary,
+        fontSize: lightTheme.font_size_body,
+      ),
+    ),
+  );
+}
+
+// Using in MaterialApp
+MaterialApp(
+  theme: getLightTheme(),
+  darkTheme: getDarkTheme(),
+  // ...
+)
+```
+
+## Best Practices
+
+1. **Variable Organization**
+   - Use clear category names
+   - Keep a consistent naming convention
+   - Group related variables together
+
+2. **Theme Structure**
+   - Create separate files for different theme aspects
+   - Use type-safe variables
+   - Document custom theme extensions
+
+3. **Maintenance**
+   - Regularly sync with Figma changes
+   - Version control your theme files
+   - Document any manual overrides
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. **API Access**
+   - Verify Enterprise plan access
+   - Check token permissions
+   - Ensure variables API is enabled
+
+2. **Variable Mapping**
+   - Confirm collection naming
+   - Check variable types
+   - Verify mode configurations
+
+3. **Type Conversion**
+   - Review variable definitions
+   - Check for unsupported types
+   - Verify value formats
+
+For more details, see the [Troubleshooting](/troubleshooting) guide. 

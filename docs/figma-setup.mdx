@@ -1,0 +1,170 @@
+---
+title: Figma Setup
+description: How to set up your Figma file for optimal use with the generator
+---
+
+# Figma Setup Guide
+
+This guide will help you set up your Figma file correctly for both icon generation and theme variable management.
+
+## Access Token Setup
+
+1. Log in to your [Figma account](https://www.figma.com)
+2. Go to Settings > Account Settings
+3. Scroll to Access tokens
+4. Click "Generate new token"
+5. Give it a name (e.g., "Flutter Generator")
+6. Copy and save the token securely
+
+## File Structure
+
+### For Icons
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/refactor/assets/screenshots/flutter_icons_example.png" alt="Icons Setup" width="600"/>
+</div>
+
+1. **Create a Dedicated Frame**
+   - Name it clearly (e.g., "Icons")
+   - Set a consistent size (e.g., 24x24)
+   - Enable "Auto Layout" for better organization
+
+2. **Icon Components**
+   - Create each icon as a component
+   - Use clear, descriptive names
+   - Keep icons monochrome
+   - Align to pixel grid
+
+3. **Naming Convention**
+   ```
+   icon/menu
+   icon/search
+   icon/notification
+   ```
+
+4. **Finding IDs**
+   - File ID: In the URL `https://www.figma.com/file/XXXXXX/...`
+   - Node ID: Right-click frame > Copy/Paste as > Copy link
+
+### For Variables
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/refactor/assets/screenshots/flutter_variable_example_1.png" alt="Variables Setup" width="600"/>
+</div>
+
+1. **Create Variable Collections**
+   - Create a collection named "1. ✨Mapped"
+   - Add modes (e.g., "Light", "Dark")
+   - Organize variables by category
+
+2. **Variable Structure**
+   ```
+   colors/
+   ├── primary
+   ├── secondary
+   ├── background
+   └── text/
+       ├── primary
+       ├── secondary
+       └── accent
+
+   typography/
+   ├── body_size
+   ├── heading_size
+   └── font_family
+
+   spacing/
+   ├── small
+   ├── medium
+   └── large
+   ```
+
+## Best Practices
+
+### Icon Design
+
+1. **Vector Optimization**
+   - Use simple paths
+   - Combine shapes when possible
+   - Remove unnecessary points
+   - Boolean operations should be finalized
+
+2. **Size and Alignment**
+   - Use consistent artboard sizes
+   - Center icons in their frames
+   - Snap to pixel grid
+   - Use even numbers for dimensions
+
+3. **Color and Effects**
+   - Keep icons monochrome
+   - Avoid complex gradients
+   - Minimize use of effects
+   - Convert strokes to fills when possible
+
+### Variable Management
+
+1. **Naming and Organization**
+   - Use descriptive names
+   - Follow category hierarchy
+   - Keep naming consistent
+   - Use lowercase with underscores
+
+2. **Value Types**
+   - Colors: Use RGBA values
+   - Numbers: Use pixel values
+   - Text: Use exact string values
+
+3. **Mode Configuration**
+   - Set default mode
+   - Define all variables in each mode
+   - Use consistent value types
+   - Document any special cases
+
+## Common Issues
+
+### Icon Generation
+
+1. **Export Problems**
+   - Ensure components are properly created
+   - Check frame constraints
+   - Verify node IDs are correct
+   - Use PDF export for complex icons
+
+2. **Quality Issues**
+   - Check vector optimization
+   - Verify alignment to pixel grid
+   - Review boolean operations
+   - Ensure consistent sizing
+
+### Variable Export
+
+1. **API Access**
+   - Verify Enterprise plan
+   - Check API permissions
+   - Validate access token
+   - Review collection setup
+
+2. **Value Mapping**
+   - Check variable types
+   - Verify mode configurations
+   - Review naming conventions
+   - Validate hierarchical structure
+
+## Next Steps
+
+After setting up your Figma file:
+
+1. Try generating icons:
+   ```bash
+   figma_flutter_generator icons --help
+   ```
+
+2. Generate theme files:
+   ```bash
+   figma_flutter_generator variables --help
+   ```
+
+For more detailed usage instructions, see:
+- [Icon Generation Guide](/icons)
+- [Theme Generation Guide](/variables)
+- [Usage Examples](/examples)

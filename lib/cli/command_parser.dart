@@ -88,4 +88,4 @@ class CommandParser {
     print('  figma_flutter_generator icons --help');
     print('  figma_flutter_generator variables --help');
   }
-} 
+}

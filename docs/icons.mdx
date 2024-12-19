@@ -1,0 +1,139 @@
+---
+title: Icon Generation
+description: Generate icon fonts from Figma designs
+---
+
+# Icon Generation
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/refactor/assets/screenshots/flutter_icons_example.png" alt="Flutter Icons Example" width="600"/>
+</div>
+
+## Overview
+
+The icon generation feature allows you to:
+- Fetch SVG icons directly from your Figma designs
+- Convert them into an optimized icon font
+- Generate a type-safe Flutter class for easy usage
+
+## Command Structure
+
+```bash
+figma_flutter_generator icons \
+  --token YOUR_FIGMA_TOKEN \
+  --file YOUR_FILE_ID \
+  --node YOUR_NODE_ID \
+  --output ./lib/icons \
+  [--direct-svg] \
+  [--clean] \
+  [--verbose]
+```
+
+### Required Parameters
+
+- `--token, -t`: Your Figma access token
+- `--file, -f`: The Figma file ID (found in the file URL)
+- `--node, -n`: The node ID containing your icons
+- `--output, -o`: Output directory for generated files
+
+### Optional Flags
+
+- `--direct-svg`: Export directly as SVG instead of PDF (requires Figma Professional)
+- `--clean`: Clean output directories before processing
+- `--verbose, -v`: Enable detailed logging
+
+## Download Methods
+
+### 1. PDF Download (Recommended)
+```bash
+figma_flutter_generator icons \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --node 456:789 \
+  --output ./lib/icons
+```
+
+Benefits:
+- Higher quality output
+- Better vector preservation
+- Handles special effects and gradients
+- Works with all Figma plans
+- More reliable for complex icons
+
+### 2. Direct SVG Download
+```bash
+figma_flutter_generator icons \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --node 456:789 \
+  --output ./lib/icons \
+  --direct-svg
+```
+
+Benefits:
+- Faster processing
+- Simpler workflow
+- Best for basic icons
+
+## Output Structure
+
+```
+lib/
+├── icons/
+│   ├── icons.ttf           # Generated icon font file
+│   ├── icons.dart          # Flutter icon class definitions
+│   ├── pdf/                # (If using PDF download)
+│   │   ├── icon1.pdf
+│   │   └── icon2.pdf
+│   └── svg/                # Final SVG files
+│       ├── icon1.svg
+│       └── icon2.svg
+```
+
+## Using Generated Icons
+
+```dart
+import 'package:your_project/icons/icons.dart';
+
+// Use in your widgets
+Icon(MyIcons.menu)
+Icon(MyIcons.search, size: 24.0, color: Colors.blue)
+```
+
+## Best Practices
+
+1. **Icon Organization**
+   - Group icons in a dedicated frame in Figma
+   - Use consistent naming conventions
+   - Maintain a consistent grid size
+
+2. **Icon Design**
+   - Use simple paths when possible
+   - Avoid complex effects that might not convert well
+   - Keep icons monochrome for best results
+
+3. **File Management**
+   - Use the `--clean` flag when regenerating icons
+   - Keep icons in a separate Figma file/page
+   - Version control your icon font files
+
+## Troubleshooting
+
+If you encounter issues:
+
+1. **Icons not appearing**
+   - Ensure icons are properly exported from Figma
+   - Check if SVG files are generated correctly
+   - Verify the font file is included in your Flutter assets
+
+2. **Conversion errors**
+   - Try using PDF download instead of direct SVG
+   - Simplify complex icons
+   - Check for unsupported SVG features
+
+3. **Quality issues**
+   - Use the PDF download method for better quality
+   - Ensure icons are properly aligned to the grid
+   - Check original icon designs for issues
+
+For more help, see the [Troubleshooting](/troubleshooting) guide. 
