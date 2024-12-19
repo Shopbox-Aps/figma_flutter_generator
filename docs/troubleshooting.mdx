@@ -1,0 +1,266 @@
+---
+title: Troubleshooting
+description: Common issues and solutions when using Figma Flutter Generator
+---
+
+# Troubleshooting Guide
+
+This guide covers common issues you might encounter when using Figma Flutter Generator and their solutions.
+
+## Installation Issues
+
+### Command Not Found
+
+```bash
+zsh: command not found: figma_flutter_generator
+```
+
+**Solutions:**
+1. Verify installation:
+   ```bash
+   dart pub global list | grep figma_flutter_generator
+   ```
+
+2. Add pub cache to PATH:
+   ```bash
+   # For bash
+   echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.bashrc
+   source ~/.bashrc
+
+   # For zsh
+   echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.zshrc
+   source ~/.zshrc
+   ```
+
+### pdf2svg Not Found
+
+```bash
+Error: pdf2svg command not found
+```
+
+**Solutions:**
+1. Install via package manager:
+   ```bash
+   # macOS
+   brew install pdf2svg
+
+   # Linux
+   sudo apt-get install pdf2svg
+
+   # Windows
+   # Download from: http://www.cityinthesky.co.uk/opensource/pdf2svg/
+   ```
+
+2. Verify installation:
+   ```bash
+   pdf2svg --version
+   ```
+
+## Icon Generation Issues
+
+### Icons Not Found in Figma
+
+```bash
+Error: No icon components found in the specified node
+```
+
+**Solutions:**
+1. Verify node ID:
+   - Check if the node ID is correct
+   - Ensure the node contains icon components
+   - Try copying the node ID again from Figma
+
+2. Check component setup:
+   - Ensure icons are created as components
+   - Verify frame is selected, not individual icons
+   - Check if icons are properly named
+
+### SVG Conversion Errors
+
+```bash
+Error converting PDF to SVG: Invalid file format
+```
+
+**Solutions:**
+1. Try PDF download method:
+   ```bash
+   # Remove --direct-svg flag
+   figma_flutter_generator icons \
+     --token YOUR_TOKEN \
+     --file FILE_ID \
+     --node NODE_ID \
+     --output ./lib/icons
+   ```
+
+2. Check icon complexity:
+   - Simplify complex paths
+   - Remove unsupported effects
+   - Convert strokes to fills
+
+### Font Generation Failed
+
+```bash
+Error: Failed to generate icon font
+```
+
+**Solutions:**
+1. Check SVG files:
+   - Verify SVGs are valid
+   - Ensure consistent sizing
+   - Remove any empty SVG files
+
+2. Clean and retry:
+   ```bash
+   figma_flutter_generator icons \
+     --token YOUR_TOKEN \
+     --file FILE_ID \
+     --node NODE_ID \
+     --output ./lib/icons \
+     --clean
+   ```
+
+## Theme Generation Issues
+
+### API Access Errors
+
+```bash
+Error: Variables API access denied
+```
+
+**Solutions:**
+1. Check Figma plan:
+   - Verify Enterprise plan subscription
+   - Contact Figma support if needed
+
+2. Verify token permissions:
+   - Generate new token
+   - Ensure correct file access
+
+### Variable Collection Not Found
+
+```bash
+Error: Mapped collection not found
+```
+
+**Solutions:**
+1. Check collection name:
+   - Ensure collection is named exactly "1. ✨Mapped"
+   - Check for hidden spaces or characters
+
+2. Verify collection setup:
+   - Check if collection exists
+   - Ensure variables are added
+   - Verify mode configuration
+
+### Type Conversion Errors
+
+```bash
+Error: Invalid variable type or value
+```
+
+**Solutions:**
+1. Check variable types:
+   - Use supported types (COLOR, FLOAT, STRING)
+   - Verify value formats
+   - Check for null values
+
+2. Review variable values:
+   - Ensure all modes have values
+   - Check value format consistency
+   - Validate color definitions
+
+## Flutter Integration Issues
+
+### Icons Not Displaying
+
+**Solutions:**
+1. Check font registration:
+   ```yaml
+   # pubspec.yaml
+   flutter:
+     fonts:
+       - family: IconFont
+         fonts:
+           - asset: lib/icons/icons.ttf
+   ```
+
+2. Verify imports:
+   ```dart
+   import 'package:your_project/icons/icons.dart';
+   ```
+
+### Theme Not Applying
+
+**Solutions:**
+1. Check theme implementation:
+   ```dart
+   MaterialApp(
+     theme: AppTheme.getLightTheme(),
+     darkTheme: AppTheme.getDarkTheme(),
+   )
+   ```
+
+2. Verify theme imports:
+   ```dart
+   import 'package:your_project/theme/light_theme.dart';
+   import 'package:your_project/theme/dark_theme.dart';
+   ```
+
+## Common Error Messages
+
+### Authentication Errors
+
+```bash
+Error: Invalid access token
+```
+
+**Solutions:**
+1. Regenerate token in Figma
+2. Check token permissions
+3. Verify token is properly copied
+
+### File Access Errors
+
+```bash
+Error: File not found or access denied
+```
+
+**Solutions:**
+1. Verify file ID
+2. Check file permissions
+3. Ensure file is not deleted
+
+### Network Errors
+
+```bash
+Error: Failed to connect to Figma API
+```
+
+**Solutions:**
+1. Check internet connection
+2. Verify API endpoint access
+3. Try again later
+
+## Getting Help
+
+If you're still experiencing issues:
+
+1. Enable verbose logging:
+   ```bash
+   figma_flutter_generator icons \
+     --token YOUR_TOKEN \
+     --file FILE_ID \
+     --node NODE_ID \
+     --output ./lib/icons \
+     --verbose
+   ```
+
+2. Check GitHub issues:
+   - Search existing issues
+   - Create new issue with logs
+   - Provide reproduction steps
+
+3. Contact support:
+   - Include error messages
+   - Attach log output
+   - Describe your setup

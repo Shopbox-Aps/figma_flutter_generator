@@ -1,0 +1,259 @@
+---
+title: Usage Examples
+description: Practical examples of using Figma Flutter Generator
+---
+
+# Usage Examples
+
+This guide provides practical examples for both icon generation and theme generation use cases.
+
+## Icon Generation Examples
+
+### Basic Icon Generation
+
+```bash
+# Generate icons with default settings (PDF download)
+figma_flutter_generator icons \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --node 456:789 \
+  --output ./lib/icons
+```
+
+### Direct SVG Export
+
+```bash
+# Use direct SVG export (requires Figma Professional)
+figma_flutter_generator icons \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --node 456:789 \
+  --output ./lib/icons \
+  --direct-svg
+```
+
+### Clean Generation with Verbose Logging
+
+```bash
+# Clean output directory and show detailed logs
+figma_flutter_generator icons \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --node 456:789 \
+  --output ./lib/icons \
+  --clean \
+  --verbose
+```
+
+### Using Generated Icons in Flutter
+
+```dart
+import 'package:your_project/icons/icons.dart';
+
+// Basic usage
+Icon(MyIcons.menu)
+
+// With color and size
+Icon(
+  MyIcons.notification,
+  color: Colors.blue,
+  size: 24.0,
+)
+
+// In a button
+IconButton(
+  icon: Icon(MyIcons.search),
+  onPressed: () => print('Search pressed'),
+)
+
+// With badge
+Badge(
+  child: Icon(MyIcons.cart),
+  label: Text('3'),
+)
+```
+
+## Theme Generation Examples
+
+### Basic Theme Generation
+
+```bash
+# Generate theme files
+figma_flutter_generator variables \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --output ./lib/theme
+```
+
+### Clean Generation with Verbose Output
+
+```bash
+# Clean output and show detailed logs
+figma_flutter_generator variables \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --output ./lib/theme \
+  --clean \
+  --verbose
+```
+
+### Using Generated Theme in Flutter
+
+#### Basic Theme Usage
+
+```dart
+import 'package:your_project/theme/light_theme.dart';
+import 'package:your_project/theme/dark_theme.dart';
+
+// Simple text styling
+Text(
+  'Hello World',
+  style: TextStyle(
+    color: lightTheme.text_primary,
+    fontSize: lightTheme.font_size_body,
+  ),
+)
+
+// Container with theme colors
+Container(
+  color: lightTheme.background_color,
+  padding: EdgeInsets.all(lightTheme.spacing_medium),
+  child: Text('Themed Container'),
+)
+```
+
+#### Complete Theme Implementation
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:your_project/theme/light_theme.dart';
+import 'package:your_project/theme/dark_theme.dart';
+
+class AppTheme {
+  static ThemeData getLightTheme() {
+    return ThemeData(
+      primaryColor: lightTheme.primary_color,
+      backgroundColor: lightTheme.background_color,
+      scaffoldBackgroundColor: lightTheme.background_color,
+      textTheme: TextTheme(
+        bodyLarge: TextStyle(
+          color: lightTheme.text_primary,
+          fontSize: lightTheme.font_size_body,
+        ),
+        titleLarge: TextStyle(
+          color: lightTheme.text_primary,
+          fontSize: lightTheme.font_size_title,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      iconTheme: IconThemeData(
+        color: lightTheme.icon_color,
+        size: lightTheme.icon_size,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: lightTheme.button_primary,
+          foregroundColor: lightTheme.button_text,
+          padding: EdgeInsets.all(lightTheme.spacing_medium),
+        ),
+      ),
+    );
+  }
+
+  static ThemeData getDarkTheme() {
+    return ThemeData(
+      primaryColor: darkTheme.primary_color,
+      backgroundColor: darkTheme.background_color,
+      scaffoldBackgroundColor: darkTheme.background_color,
+      // ... similar to light theme
+    );
+  }
+}
+
+// Using in MaterialApp
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: AppTheme.getLightTheme(),
+      darkTheme: AppTheme.getDarkTheme(),
+      // ...
+    );
+  }
+}
+```
+
+## Complete App Example
+
+Here's a complete example combining both icons and theme:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:your_project/icons/icons.dart';
+import 'package:your_project/theme/light_theme.dart';
+import 'package:your_project/theme/dark_theme.dart';
+
+class ExampleApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: AppTheme.getLightTheme(),
+      darkTheme: AppTheme.getDarkTheme(),
+      home: ExampleScreen(),
+    );
+  }
+}
+
+class ExampleScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Example App'),
+        actions: [
+          IconButton(
+            icon: Icon(MyIcons.notification),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: Container(
+        padding: EdgeInsets.all(lightTheme.spacing_medium),
+        child: Column(
+          children: [
+            Card(
+              child: ListTile(
+                leading: Icon(MyIcons.user),
+                title: Text(
+                  'User Profile',
+                  style: TextStyle(
+                    color: lightTheme.text_primary,
+                    fontSize: lightTheme.font_size_body,
+                  ),
+                ),
+                trailing: Icon(MyIcons.arrow_right),
+              ),
+            ),
+            ElevatedButton.icon(
+              icon: Icon(MyIcons.save),
+              label: Text('Save Changes'),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(MyIcons.add),
+        onPressed: () {},
+      ),
+    );
+  }
+}
+```
+
+## Next Steps
+
+- Check out the [Troubleshooting](/troubleshooting) guide for common issues
+- Learn about [Figma setup](/figma-setup) for optimal results
+- Review [best practices](/variables#best-practices) for theme management
+``` 

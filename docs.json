@@ -1,0 +1,62 @@
+{
+  "name": "Figma Flutter Generator",
+  "description": "A powerful command-line tool that fetches SVG icons from Figma and converts them into an icon font, while also handling Figma variables for Flutter theme files.",
+  "theme": {
+    "colors": {
+      "primary": "#0175C2",
+      "light": "#02569B"
+    }
+  },
+  "sidebar": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        {
+          "title": "Introduction",
+          "href": "/",
+          "icon": "rocket"
+        },
+        {
+          "title": "Installation",
+          "href": "/installation",
+          "icon": "download"
+        }
+      ]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        {
+          "title": "Icon Generation",
+          "href": "/icons",
+          "icon": "image"
+        },
+        {
+          "title": "Theme Generation",
+          "href": "/variables",
+          "icon": "palette"
+        }
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        {
+          "title": "Figma Setup",
+          "href": "/figma-setup",
+          "icon": "figma"
+        },
+        {
+          "title": "Usage Examples",
+          "href": "/examples",
+          "icon": "code"
+        },
+        {
+          "title": "Troubleshooting",
+          "href": "/troubleshooting",
+          "icon": "bug"
+        }
+      ]
+    }
+  ]
+}

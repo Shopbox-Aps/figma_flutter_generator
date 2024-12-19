@@ -1,0 +1,92 @@
+---
+title: Figma Flutter Generator
+description: A powerful CLI tool for Figma to Flutter integration
+---
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Shopbox-Aps/figma_flutter_generator/refactor/assets/screenshots/cover.png" alt="Figma Flutter Generator Cover" width="100%"/>
+</div>
+
+# Introduction
+
+Figma Flutter Generator is a powerful command-line tool that bridges the gap between Figma and Flutter development. It provides two main features:
+
+## Icon Font Generation
+- Fetch SVG icons directly from Figma using the Figma API
+- Convert SVGs to an icon font with corresponding Flutter class
+- Support for both PDF and SVG icon downloads
+- Automatic handling of complex SVG features
+
+## Theme Generation
+- Generate Flutter theme files from Figma variables
+- Support for multiple theme modes (light/dark)
+- Automatic color, typography, and spacing variable conversion
+- Type-safe theme generation
+
+## Key Features
+
+🔄 **Direct Figma Integration**
+- Seamless connection with Figma API
+- Real-time asset synchronization
+- Automatic updates when designs change
+
+🎨 **Flexible Asset Handling**
+- Support for both PDF and SVG formats
+- High-quality vector preservation
+- Handles complex SVG features and effects
+
+📦 **Optimized Output**
+- Generates optimized icon fonts
+- Creates type-safe Flutter classes
+- Produces clean, maintainable theme files
+
+🛠️ **Developer Experience**
+- Simple command-line interface
+- Verbose mode for detailed logging
+- Comprehensive error handling
+
+## Getting Started
+
+To get started with Figma Flutter Generator, check out our [Installation](/installation) guide, or dive into specific features:
+
+- [Icon Generation Guide](/icons)
+- [Theme Generation Guide](/variables)
+- [Figma Setup Instructions](/figma-setup)
+
+## Quick Example
+
+```bash
+# Generate icon font
+figma_flutter_generator icons \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --node 456:789 \
+  --output ./lib/icons
+
+# Generate theme files
+figma_flutter_generator variables \
+  --token YOUR_FIGMA_TOKEN \
+  --file abc123xyz \
+  --output ./lib/theme
+```
+
+## Support
+
+If you encounter any issues or need help, check out our [Troubleshooting](/troubleshooting) guide or visit our [GitHub repository](https://github.com/Shopbox-Aps/figma_flutter_generator).
+
+## Authors
+
+### Developers
+- **Ramy Selim**
+  - Chief Technology Officer (CTO) at Shopbox APS
+  - [LinkedIn Profile](https://www.linkedin.com/in/ramy-selim-417a6160/)
+
+- **Mohammed Ebrahim**
+  - Senior Flutter Developer at Shopbox APS
+  - [LinkedIn Profile](https://www.linkedin.com/in/mohammed-ebrahim-675418191/)
+
+### Company
+Developed and maintained by [Shopbox APS](https://shopbox.com) - A leading provider of point-of-sale and payment solutions.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/Shopbox-Aps/figma_flutter_generator/blob/main/LICENSE) file for details.

@@ -1,0 +1,69 @@
+---
+title: Installation
+description: How to install and set up Figma Flutter Generator
+---
+
+# Installation
+
+## Prerequisites
+
+Before installing Figma Flutter Generator, ensure you have:
+
+1. **Dart SDK** (>=2.19.0 <4.0.0)
+2. **Flutter** (for theme generation)
+3. **pdf2svg** (for PDF to SVG conversion, if not using direct SVG export)
+
+### Installing pdf2svg
+
+```bash
+# macOS
+brew install pdf2svg
+
+# Linux
+sudo apt-get install pdf2svg
+
+# Windows
+# Download from: http://www.cityinthesky.co.uk/opensource/pdf2svg/
+```
+
+## Package Installation
+
+Install Figma Flutter Generator globally using pub:
+
+```bash
+dart pub global activate figma_flutter_generator
+```
+
+## Figma Setup
+
+You'll need a Figma access token to use this tool:
+
+1. Log in to your Figma account
+2. Go to Settings > Account Settings
+3. In the Personal access tokens section, click "Create new token"
+4. Copy your access token for use in the commands
+
+### Required Figma Plans
+
+- **For Icon Generation:**
+  - Basic Plan: PDF export (recommended)
+  - Professional Plan: Direct SVG export
+- **For Theme Generation:**
+  - Enterprise Plan: Required for Variables API access
+
+## Verifying Installation
+
+Verify the installation by running:
+
+```bash
+figma_flutter_generator --help
+```
+
+You should see the command usage information displayed.
+
+## Next Steps
+
+- Learn how to [set up your Figma file](/figma-setup)
+- Start [generating icons](/icons)
+- Begin [creating themes](/variables)
+``` 
